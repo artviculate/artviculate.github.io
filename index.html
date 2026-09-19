@@ -3,14 +3,147 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>artviculate - Profile</title>
+  <title>Victor Soriano Moreno - Profile</title>
   <style>
-    /* Paste your CSS styling here */
+    :root {
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --text-main: #f8fafc;
+      --text-sub: #94a3b8;
+      --accent-blue: #38bdf8;
+      --border-color: #334155;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 32px;
+      max-width: 440px;
+      width: 100%;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+
+    .avatar-placeholder {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      font-weight: bold;
+      color: #fff;
+      margin: 0 auto 20px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 6px;
+    }
+
+    p.subtitle {
+      color: var(--accent-blue);
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+
+    p.bio {
+      color: var(--text-sub);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+
+    .links-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .profile-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background-color: #0284c7;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 12px 20px;
+      border-radius: 8px;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .profile-btn:hover {
+      background-color: #0369a1;
+      transform: translateY(-1px);
+    }
+
+    .profile-btn.github {
+      background-color: #333333;
+    }
+
+    .profile-btn.github:hover {
+      background-color: #24292e;
+    }
+
+    .footer-tag {
+      margin-top: 24px;
+      font-size: 0.75rem;
+      color: var(--text-sub);
+      border-top: 1px solid var(--border-color);
+      padding-top: 16px;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Paste your HTML structure here -->
+  <div class="card">
+    <div class="avatar-placeholder">VS</div>
+    <h1>Victor Soriano Moreno</h1>
+    <p class="subtitle">Operations & Embedded Hardware Developer</p>
+    <p class="bio">
+      Experienced professional specializing in operations workflows, automated systems, and local ESP32 / IoT microcontrollers.
+    </p>
+
+    <div class="links-container">
+      <!-- Replace with your actual LinkedIn profile URL -->
+      <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="profile-btn">
+        LinkedIn Profile
+      </a>
+
+      <!-- Link to your GitHub profile -->
+      <a href="https://github.com/artviculate" target="_blank" rel="noopener noreferrer" class="profile-btn github">
+        GitHub Profile
+      </a>
+    </div>
+
+    <div class="footer-tag">
+      Hosted on GitHub Pages • Compiled for ESP32 Dev Module
+    </div>
+  </div>
 
 </body>
 </html>
