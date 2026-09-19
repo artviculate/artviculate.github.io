@@ -1,0 +1,91 @@
+#include <WiFi.h>
+#include <WebServer.h>
+
+// Replace with your Wi-Fi credentials
+const char* ssid     = "xxxxxxxx";
+const char* password = "xxxxxxxx";
+
+WebServer server(80);
+
+// HTML Page stored in flash memory as a raw string literal
+const char PROFILE_HTML[] PROGMEM = R"rawliteral(
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Victor Soriano Moreno - Profile</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 20px; display: flex; justify-content: center; }
+    .card { background: #1e293b; max-width: 650px; width: 100%; padding: 30px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); border: 1px solid #334155; }
+    h1 { color: #38bdf8; margin-top: 0; margin-bottom: 5px; font-size: 28px; }
+    .subtitle { color: #94a3b8; font-size: 14px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+    .tag { display: inline-block; background: #0284c7; color: #fff; padding: 3px 10px; border-radius: 15px; font-size: 12px; font-weight: bold; margin-right: 5px; }
+    h2 { color: #f1f5f9; border-bottom: 1px solid #334155; padding-bottom: 8px; margin-top: 25px; font-size: 18px; }
+    ul { padding-left: 20px; color: #cbd5e1; line-height: 1.6; }
+    li { margin-bottom: 8px; }
+    .footer { font-size: 12px; color: #64748b; text-align: center; margin-top: 30px; padding-top: 15px; border-top: 1px solid #334155; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Victor Soriano Moreno</h1>
+    <div class="subtitle">Tarzana, CA &bull; Mortgage Operations & Hardware Enthusiast</div>
+    <div>
+      <span class="tag">Bilingual</span>
+      <span class="tag">CSUCI Graduate</span>
+      <span class="tag">ESP32 / IoT</span>
+    </div>
+
+    <h2>Professional Background</h2>
+    <ul>
+      <li><strong>Education:</strong> B.S. in Business Administration (Cal State Channel Islands)</li>
+      <li><strong>Operations & Risk:</strong> Experienced mortgage operations specialist across underwriting, closing, and account management at Pennymac, Finance of America, and Bank of America.</li>
+    </ul>
+
+    <h2>Technical & Hardware Projects</h2>
+    <ul>
+      <li><strong>Microcontrollers & Telemetry:</strong> DIY ESP32, Heltec LoRa V3, and BME280 sensor integration via Arduino IDE and VS Code.</li>
+      <li><strong>Computer Vision & Local AI:</strong> Python scripting with OpenCV, Ultralytics YOLO, and local Ollama models for motion detection and telemetry.</li>
+    </ul>
+
+    <h2>Personal Hobbies</h2>
+    <ul>
+      <li><strong>Saltwater Angling:</strong> Surf and pier fishing Southern California (Malibu, Redondo Beach Pier, Pier J, Santa Monica Bay) targeting halibut, corbina, yellowtail, and bonito.</li>
+      <li><strong>Family & Creative:</strong> LEGO builds, sandbox gaming concepts, and coastal trips with family and dog.</li>
+    </ul>
+
+    <div class="footer">Hosted directly from ESP32 Microcontroller</div>
+  </div>
+</body>
+</html>
+)rawliteral";
+
+void handleRoot() {
+  server.send(200, "text/html", PROFILE_HTML);
+}
+
+void setup() {
+  Serial.begin(115200);
+  delay(1000);
+
+  WiFi.begin(ssid, password);
+  Serial.print("Connecting to Wi-Fi");
+  
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+
+  Serial.println("\nConnected!");
+  Serial.print("Access profile page at: http://");
+  Serial.println(WiFi.localIP());
+
+  server.on("/", handleRoot);
+  server.begin();
+  Serial.println("HTTP server started");
+}
+
+void loop() {
+  server.handleClient();
+}
