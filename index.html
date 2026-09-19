@@ -36,7 +36,7 @@
       border: 1px solid var(--border-color);
       border-radius: 16px;
       padding: 32px;
-      max-width: 440px;
+      max-width: 460px;
       width: 100%;
       box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
       text-align: center;
@@ -46,7 +46,7 @@
       width: 96px;
       height: 96px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      background: linear-gradient(135deg, #0284c7, #38bdf8);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -64,7 +64,7 @@
     p.subtitle {
       color: var(--accent-blue);
       font-size: 0.95rem;
-      font-weight: 500;
+      font-weight: 600;
       margin-bottom: 16px;
     }
 
@@ -73,6 +73,24 @@
       font-size: 0.9rem;
       line-height: 1.5;
       margin-bottom: 24px;
+    }
+
+    .highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .pill {
+      background-color: rgba(56, 189, 248, 0.1);
+      color: var(--accent-blue);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 12px;
     }
 
     .links-container {
@@ -123,25 +141,31 @@
   <div class="card">
     <div class="avatar-placeholder">VS</div>
     <h1>Victor Soriano Moreno</h1>
-    <p class="subtitle">Operations & Embedded Hardware Developer</p>
+    <p class="subtitle">Mortgage Operations Specialist & Account Manager</p>
+
     <p class="bio">
-      Experienced professional specializing in operations workflows, automated systems, and local ESP32 / IoT microcontrollers.
+      Detail-oriented mortgage operations professional with extensive experience across home loan closing, underwriting, and account management[cite: 1]. Proven track record in risk review, regulatory compliance, and partner relationships[cite: 1].
     </p>
 
+    <div class="highlights">
+      <span class="pill">Loan Closing & Compliance</span>
+      <span class="pill">Underwriting & Risk Review</span>
+      <span class="pill">B2B Account Management</span>
+      <span class="pill">Bilingual (EN / ES)</span>
+    </div>
+
     <div class="links-container">
-      <!-- Replace with your actual LinkedIn profile URL -->
-      <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="profile-btn">
+      <a href="https://www.linkedin.com/in/artviculate/" target="_blank" rel="noopener noreferrer" class="profile-btn">
         LinkedIn Profile
       </a>
 
-      <!-- Link to your GitHub profile -->
       <a href="https://github.com/artviculate" target="_blank" rel="noopener noreferrer" class="profile-btn github">
         GitHub Profile
       </a>
     </div>
 
     <div class="footer-tag">
-      Hosted on GitHub Pages • Compiled for ESP32 Dev Module
+      B.S. Business Administration • CSU Channel Islands[cite: 1]
     </div>
   </div>
 
